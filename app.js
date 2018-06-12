@@ -6,7 +6,6 @@ var expressSanitizer    = require("express-sanitizer"),
     express             = require("express"),
     seedDB              = require("./seeds"),
     moment              = require("moment"),
-    $                   = require('jquery'),
     app                 = express(),
     
     Picture             = require("./models/picture"),
@@ -30,8 +29,6 @@ var blogRoutes          = require("./routes/blogs"),
 mongoose.connect("mongodb://bansal321:75J0tryG@ds123136.mlab.com:23136/profileblog");
 
 
-
-
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,7 +38,7 @@ app.use(methodOverride("_method"));
 // seedDB();
 
 app.locals.moment   = require('moment');
-app.locals.$        = require("jquery");
+
 
 // PASSPORT CONFIG
 app.use(require("express-session")({

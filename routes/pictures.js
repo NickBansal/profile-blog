@@ -31,8 +31,6 @@ router.post("/blogs/:id/pictures", middleware.isLoggedIn, function(req, res){
                    blog.picture.push(comment);
                    blog.save();
                    res.redirect("/blogs/" + blog._id);
-                   console.log("PLEASE TAKE A LOOK AT THIS " + blog.picture.image);
-                   
                }
            })
         };
