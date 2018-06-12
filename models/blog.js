@@ -3,7 +3,13 @@ var mongoose = require("mongoose");
 var blogSchema = new mongoose.Schema({
     title:      String,
     image:      String, 
-    body:       String, 
+    body:       String,
+    picture:    [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Picture",
+        }
+    ],
     author:     {
         id: {
             type: mongoose.Schema.Types.ObjectId,
@@ -12,12 +18,6 @@ var blogSchema = new mongoose.Schema({
         username: String,
     },
     created:    {type: Date, default: Date.now},
-    comments:   [
-        {
-            type:   mongoose.Schema.Types.ObjectId,
-            ref:    "Comment",
-        }
-        ]
 });
 
 module.exports = mongoose.model("Blog", blogSchema); 

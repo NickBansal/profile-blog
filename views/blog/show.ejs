@@ -8,13 +8,30 @@
     <br />
     <div class="container">
         <div class="img-thumbnail">
-            <img class="img-responsive" id="fut" src="<%= blog.image %>">
+            <ul class="rslides">
+                <li><img class="img-responsive" id="fut" src="<%= blog.image %>"></li>
+                
+                <% blog.picture.forEach(function(data){ %>
+                    <li>
+                        <img class="img-responsive" id="fut" src="<%= data.image %>">
+                    </li>
+                <% }) %>
+            </ul>
+        </div>         
+            
+            
+            
             <div class="row buttons">
                 <% if (currentUser) { %>
-                    <div class="col-md-6 col-sm-12 text-left">
+                    <div class="col-md-4 col-sm-4 text-left">
                         <a class="btn btn-light border" href="/blogs/<%= blog._id %>/edit" role="button">EDIT</a>
                     </div>
-                    <div class="col-md-6 col-sm-12 text-right">
+                    <div class="col-md-4 col-sm-4 text-center">
+                        <a href="/blogs/<%= blog._id %>/pictures/new">
+                            <button class="btn btn-dark btn-lg">NEW PICTURE</button>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-sm-4 text-right">
                         <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
                             <button class="btn btn-light btn-warning border">DELETE</button>
                         </form>
@@ -38,5 +55,8 @@
     
 </div>
 
+
+<script type="text/javascript" src="/projects/responsiveslides.min.js"></script>
+<script type="text/javascript" src="/projects/slider.js"></script>
 
 <% include ../partials/footer %>

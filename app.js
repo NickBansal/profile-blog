@@ -6,9 +6,10 @@ var expressSanitizer    = require("express-sanitizer"),
     express             = require("express"),
     seedDB              = require("./seeds"),
     moment              = require("moment"),
+    $                   = require('jquery'),
     app                 = express(),
     
-    Comment             = require("./models/comments"),
+    Picture             = require("./models/picture"),
     Blog                = require("./models/blog"),
     User                = require("./models/user"),
     
@@ -18,15 +19,16 @@ var expressSanitizer    = require("express-sanitizer"),
     
 // DIFFERENT ROUTE PAGES
 var blogRoutes          = require("./routes/blogs"),
-    commentRoutes       = require("./routes/comments"),
+    pictureRoutes       = require("./routes/pictures"),
     authRoutes          = require("./routes/auth"),
     portfolioRoutes     = require("./routes/portfolio");
 
 
 // APP CONFIG    
 
-// mongoose.connect("mongodb://localhost/blog_app2");
-mongoose.connect("mongodb://Bansal321:75J0tryG!@ds123136.mlab.com:23136/profileblog");
+var url = process.env.DATABASEURL || "mongodb://localhost/blog_app2";
+mongoose.connect(url);
+
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -36,7 +38,8 @@ app.use(flash());
 app.use(methodOverride("_method"));
 // seedDB();
 
-app.locals.moment = require('moment');
+app.locals.moment   = require('moment');
+app.locals.$        = require("jquery");
 
 // PASSPORT CONFIG
 app.use(require("express-session")({
@@ -65,7 +68,7 @@ app.use(function(req, res, next) {
 
 // ROUTE CONFIG
 app.use(blogRoutes);
-app.use(commentRoutes);
+app.use(pictureRoutes);
 app.use(authRoutes);
 app.use(portfolioRoutes);
 

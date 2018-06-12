@@ -5,6 +5,11 @@
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
         <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+        <script
+          src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous">
+      </script>
     </head>
     <body>
       
@@ -43,7 +48,7 @@
             <ul class="nav navbar-nav ml-auto">
               <% if (!currentUser) { %>
               <li><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"> </i> Log In</a></li>
-              <li><a class="nav-link" href="/register">Sign Up</a></li>
+              <!--<li><a class="nav-link" href="/register">Sign Up</a></li>-->
               <% } else { %>
               <li><a class="nav-link" href="#">logged in as: <strong><%= currentUser.username %></strong></a></li>
               <li><a class="nav-link active" href="/logout">Log Out</a></li>

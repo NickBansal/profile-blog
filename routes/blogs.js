@@ -1,6 +1,6 @@
 var express = require("express"),
     router = express.Router(),
-    Comment = require("../models/comments"),
+    Picture = require("../models/picture"),
     middleware = require("../middleware"),
     Blog = require("../models/blog");
 
@@ -60,11 +60,11 @@ router.post("/blogs", middleware.isLoggedIn, function(req, res){
 
 // SHOW
 router.get("/blogs/:id", function(req, res){
-    Blog.findById(req.params.id).populate("comments").exec(function(err, showBlog){
+    Blog.findById(req.params.id).populate("picture").exec(function(err, showBlog){
         if (err) {
             res.redirect("/blogs")
         } else {
-            console.log(showBlog);
+            // console.log(showBlog);
             res.render("blog/show", {blog: showBlog})
         }
     });

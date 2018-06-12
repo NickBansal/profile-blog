@@ -1,6 +1,6 @@
 var mongoose = require("mongoose"),
     Blog = require("./models/blog"),
-    Comment = require("./models/comments");
+    Picture = require("./models/picture");
     
    
 function seedDB(){
