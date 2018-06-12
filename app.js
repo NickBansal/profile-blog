@@ -24,7 +24,10 @@ var blogRoutes          = require("./routes/blogs"),
 
 
 // APP CONFIG    
-mongoose.connect("mongodb://localhost/blog_app2");
+
+// mongoose.connect("mongodb://localhost/blog_app2");
+mongoose.connect("mongodb://Bansal321:75J0tryG!@ds123136.mlab.com:23136/profileblog");
+
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
