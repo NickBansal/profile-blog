@@ -26,8 +26,10 @@ var blogRoutes          = require("./routes/blogs"),
 
 // APP CONFIG    
 
-var url = process.env.DATABASEURL || "mongodb://localhost/blog_app2";
-mongoose.connect(url);
+// mongoose.connect("mongodb://localhost/blog_app2");
+mongoose.connect("mongodb://bansal321:75J0tryG@ds123136.mlab.com:23136/profileblog");
+
+
 
 
 app.set("view engine", "ejs");

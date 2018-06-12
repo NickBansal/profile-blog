@@ -175,7 +175,7 @@ ul.rslides {
 
 .rslides img {
   display: block;
-  height: auto;
+  height: 550px;
   float: left;
   width: 100%;
   border: 0;
