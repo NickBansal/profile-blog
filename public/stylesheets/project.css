@@ -1,0 +1,43 @@
+body {
+    background-color: white;
+    /*color: grey;*/
+    font-family: "Avenir";
+}
+
+nav.bottom {
+    margin-bottom: 10px;
+    background: transparent;
+}
+
+p {
+  color: white;
+}
+
+.box {
+    border: black 5px solid;
+    text-align: center;
+}
+
+.centered {
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+p.text-center {
+    color: gray;
+}
+
+h1 {
+    color: black;
+}
+
+button.btn {
+    margin-bottom: 30px;
+}
+
+a.nav-link {
+    color: black;
+}

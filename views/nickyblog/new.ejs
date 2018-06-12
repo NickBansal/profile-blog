@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Nick Bansal</title>
+	
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/profile.css">
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+
+	  <!--NAVBAR-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/nickbansal">Nick Bansal</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <% if (currentUser) { %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/blogs/new">New</a>
+                  </li>
+                <% } %>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/blogs">TravelBlog <span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/music">Music</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+         
+          
+          
+        </div>
+         <div class="collapse navbar-collapse container">
+            <ul class="nav navbar-nav ml-auto">
+              <% if (!currentUser) { %>
+              <li><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"> </i> Log In</a></li>
+              <!--<li><a class="nav-link" href="/register">Sign Up</a></li>-->
+              <% } else { %>
+              <li><a class="nav-link" href="#">logged in as: <strong><%= currentUser.username %></strong></a></li>
+              <li><a class="nav-link active" href="/logout">Log Out</a></li>
+              <% } %>
+            </ul>
+          </div>
+      
+      </nav>
+      
+      <div class="container warn">
+        
+        <% if (error && error.length>0) { %>
+          <div class="alert alert-danger" role="alert">
+            <%= error %>
+          </div>
+        <% } %>
+        <% if (success && success.length>0) { %>
+          <div class="alert alert-success" role="alert">
+            <%= success %>
+          </div>
+        <% } %>
+        
+      </div>
+      
+      <!--CONTAINER-->
+      <div class="container">
+
+		<div class="tab">
+		  <button class="tablinks" onclick="openCity(event, 'London')">Profile</button>
+		  <button class="tablinks contact" onclick="openCity(event, 'Paris')">Skills</button>
+		  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Contact</button>
+		</div>
+
+
+		<!-- PROFILE TAB -->
+
+		<div id="London" class="tabcontent">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="img-thumbnail">
+					<img src="https://image.ibb.co/dNUthd/IMG_2365.jpg">	
+				</div>
+			</div>
+			<div class="col-md-8 scroll">
+				<p class="profile">
+					I decided to create a website to showcase some valuable skills I have gained on my journey through the world of coding.
+					<br />
+					Recently divorced from the Sales industry and looking to find my feet in a more creative and technological environment. 
+					<br />
+					I have a keen passion for all things music, technology & gaming based and I am striving to find a career that incorporates these interests.
+				</p>
+			</div>
+		</div>
+		<br />
+			<hr>
+
+
+		</div>
+
+
+		<div id="Paris" class="tabcontent">
+		  <ul>
+			  <li class="drown">Javascript <span class=float-right><i class="fa fa-check"></i></span></li>
+			  <hr>
+			  <li class="drown">CSS <span class=float-right><i class="fa fa-check"></i></span></li>
+			   <hr>
+			  <li class="drown">HTML <span class=float-right><i class="fa fa-check"></i></span></li>
+			   <hr>
+			  <li class="drown">Node JS <span class=float-right><i class="fa fa-check"></i></span></li>
+			   <hr>
+			  <li class="drown">Express JS <span class=float-right><i class="fa fa-check"></i></span></li>
+			   <hr>
+			  <li class="drown">JQuery <span class=float-right><i class="fa fa-check"></i></span></li>
+			   <hr>
+			  <li class="drown">Mongoose DB <span class=float-right><i class="fa fa-check"></i></span></li>
+			   <hr>
+			  <li class="drown">Heroku <span class=float-right><i class="fa fa-check"></i></span></li>
+			   <hr>
+			  <li class="drown">Github <span class=float-right><i class="fa fa-check"></i></span></li>
+
+		  </ul>
+
+		</div>
+
+
+
+		<div id="Tokyo" class="tabcontent">
+		  <table>
+			  
+			  <tr>
+			    <td class="name">Email:</td>
+			    <td>extreme_wired@msn.com</td>
+			  </tr>
+			  <tr>
+			    <td class="name">Mobile:</td>
+			    <td>07824158048</td>
+			  </tr>
+			</table>
+			<br /><br />
+			<div class="icons text-center">
+				<a href="https://github.com/"><i class="fa fa-github"></i></a> 
+				<a href="#"><i class="fa fa-twitter"></i></a> 
+				<a href="https://uk.linkedin.com/"><i class="fa fa-linkedin"></i></a> 
+				<a href="https://www.facebook.com/nickybee0"><i class="fa fa-facebook"></i></a> 	
+		  	</div>  
+		  	<hr>
+		</div>
+	</div>
+
+
+	
+
+<script type="text/javascript" src="/projects/profile.js"></script>
+</body>
+</html>

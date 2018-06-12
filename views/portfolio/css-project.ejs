@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS WebPage</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/css-project.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    </head>
+
+
+<body>
+    
+    
+<!--NAVBAR-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand" href="/nickbansal">Nick Bansal</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <% if (currentUser) { %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/blogs/new">New</a>
+                  </li>
+                <% } %>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/blogs">TravelBlog <span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/music">Music</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+         
+          
+          
+        </div>
+         <div class="collapse navbar-collapse container">
+            <ul class="nav navbar-nav ml-auto">
+              <% if (!currentUser) { %>
+              <li><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"> </i> Log In</a></li>
+              <!--<li><a class="nav-link" href="/register">Sign Up</a></li>-->
+              <% } else { %>
+              <li><a class="nav-link" href="#">logged in as: <strong><%= currentUser.username %></strong></a></li>
+              <li><a class="nav-link active" href="/logout">Log Out</a></li>
+              <% } %>
+            </ul>
+          </div>
+      </nav>
+      
+      
+      
+       <!--SECOND NAVBAR-->
+       <nav class="navbar navbar-expand-lg navbar-trans bottom">
+          <div class="container">
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav">
+                <a class="nav-link" href="/portfolio/clock">
+                  <li class="nav-item">
+                    <i class="fas fa-angle-left"></i> Back
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </div>
+         
+          
+          
+        </div>
+         <div class="collapse navbar-collapse container">
+            <ul class="nav navbar-nav ml-auto">
+              <li>
+                <a class="nav-link" href="/portfolio/first_project"> Next <i class="fas fa-angle-right"></i></a></li>
+            </ul>
+          </div>
+      </nav>
+      
+      <header>
+  	<h2><a href="">Nick Bansal</a></h2>
+  	<nav>
+  		<a href="www.music.com">Music</a>
+  		<a href="#">About</a>	
+  		<a href="#">Contact</a>
+  	</nav>
+  </header>
+ 
+  <section class="hero">
+  	<div class="background-image" style="background-image: url(/stylesheets/img/downdog.jpg)">
+  		<h1>CSS/FlexBox Site</h1>
+  	</div>
+  	<div class="hero-content-area">
+  		<!-- <h1>Mountain Travel</h1> -->
+  		<h1>My example CSS website</h1>
+  		<!--<a href="#" class="btn">Contact Me</a>-->
+  	</div>
+  </section>
+
+  <section class="destinations">
+  	<h3 class="title">Recent Travel Pictures:</h3>
+  	<p>A sample of how much fun I had in Thailand</p>
+  	<hr>
+  	<ul class="grid">
+  		<li class="small" style="background-image: url(/stylesheets/img/me.jpg)"></li>
+  		<li class="large" style="background-image: url(/stylesheets/img/jungle.jpg)"></li>
+  		<li class="large" style="background-image: url(/stylesheets/img/elephant.jpg)"></li>
+  		<li class="small" style="background-image: url(/stylesheets/img/waterfall.jpg)"></li>
+  		<li class="large" style="background-image: url(/stylesheets/img/2.jpg)"></li>
+  		<li class="small" style="background-image: url(/stylesheets/img/1.jpg)"></li>
+  		<li class="small" style="background-image: url(/stylesheets/img/path.jpg)"></li>
+  		<li class="large" style="background-image: url(/stylesheets/img/river.jpg)"></li>
+  	</ul>
+  </section>
+
+  <section class="music">
+  	<h3 class="title">Music</h3>
+  	<p>This is a little bit of my music</p>
+  	<hr>	
+  	<iframe width="80%" height="400" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1231305&color=%23f2e010&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+  </section>
+
+  <section class="packages">
+  	<h3 class="title">Contact</h3>
+  	<p>If you want to </p>
+  	<hr>
+
+  	<ul class="grid">
+  		<li>
+  			<a href="#">
+  			<i class="fab fa-facebook fa-4x"></i>
+  			</a>
+  			<h4>Facebook</h4>
+  		</li>
+  		<li><a href="#">
+  			
+  			<i class="fab fa-linkedin fa-4x"></i>	</a>
+  			<h4>Linkedin</h4>
+  		</li>
+  		<li><a href="#">
+  			<i class="fab fa-twitter fa-4x"></i>	</a>
+  			<h4>Twitter</h4>
+  		</li>
+  		<li><a href="#">
+  			<i class="fab fa-github fa-4x"></i>	</a>
+  			<h4>Github</h4>
+  		</li>
+  	</ul>
+  </section>
+
+  
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

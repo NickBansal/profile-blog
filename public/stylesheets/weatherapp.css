@@ -1,0 +1,46 @@
+body {
+	background: linear-gradient(to right, red, yellow);
+	text-align: center;
+	font-family: "Avenir";
+}
+
+h1 {
+	font-weight: 700;
+}
+
+h2 {
+	line-height: 1.9;
+}
+
+#box {
+	font-size: 2vw;
+	margin: 5% 3%;
+	padding: 5% 5% 0 5%;
+	text-align: center;
+}
+
+#outbox {
+	margin: 0 auto;
+	width: 50%;
+	padding-bottom: 3%;
+	text-align: center;
+}
+
+button {
+	height: 60px;
+	width: 60px;
+	border-radius: 50%;
+	outline: none;
+	font-size: 180%;
+	cursor: pointer;
+	border: 5px solid red;
+}
+
+img {
+	width: 30%;
+    height: auto;
+}
+
+a.nav-link {
+	color: black;
+}

@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+
+<div class="container xyz">
+    <% foundBlog.forEach(function(data){ %>
+    
+    <hr> 
+    
+    
+    <div class="row">
+        <div class="col-md-2 col-xs-0"></div>
+        
+        <div class="col-md-4 col-xs-6">
+            <div class="img-thumbnail">
+                <a href="/blogs/<%= data._id %>">
+                    <img class="img-responsive rounded" src="<%= data.image %>">
+                </a>
+            </div>
+             <div class="row">
+                <% if (currentUser) { %>
+                    <form class="btn" action="/blogs/<%= data._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger btn-sm border" >DELETE</button>
+                    </form>
+                <% } %>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-xs-6">
+            <div class="pic">
+                <a href="/blogs/<%= data._id %>"><h3><strong><%= data.title %></strong></h3></a>
+                
+                <p><%= data.body.substring(0,150)+"..." %></p>
+                <br /><br />
+                
+            </div>
+        </div>
+        
+        <div class="col-md-2 col-xs-0"></div>
+    </div>
+   
+    
+    
+   
+<% }) %>
+</div>
+
+<% include ../partials/footer %>

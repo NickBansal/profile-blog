@@ -1,0 +1,80 @@
+body {
+    font-family: "Avenir";
+}
+
+input {
+	width: 100%;
+	line-height: 3.0;
+	font-size: 24px;
+	padding-left: 30px;
+
+	border: 5px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1); 
+    background: rgba(255,255,255,0.5);
+    margin: 0;
+
+    outline: none;
+}
+
+input:focus {
+    background-color: #e3e4e8;
+    transition: background-color 1s;
+    /*font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;*/
+}
+
+img {
+	height: 50px;
+	width: 50px;
+}
+
+button {
+   border-top: 1px solid #96d1f8;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+   background: -o-linear-gradient(top, #3e779d, #65a9d7);
+   padding: 10px 20px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 23px;
+   font-family: "Avenir";
+   text-decoration: none;
+   vertical-align: middle;
+   margin-bottom: 5%;
+   }
+
+button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+
+button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+   
+div.box {
+    margin-top: 1%;
+}
+
+a.nav-link {
+    color: black;
+}
+

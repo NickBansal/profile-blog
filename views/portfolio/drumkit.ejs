@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DrumKit</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/drumkit.css">
+    <script type="text/javascript" src="/projects/paper-full.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.0/howler.js">
+</script>
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+
+    var keyData = {
+    	a: {
+    		sound: new Howl({
+    			src: ['/projects/samples/openhat-acoustic01.wav']
+    		}),
+    		color: '#1abc9c'
+		},
+		s: {
+			sound: new Howl({
+	  			src: ['/projects/samples/hihat-acoustic01.wav']
+			}),
+			color: '#2ecc71'
+		},
+		d: {
+			sound: new Howl({
+	  			src: ['/projects/samples/kick-acoustic01.wav']
+			}),
+			color: '#3498db'
+		},
+		f: {
+			sound: new Howl({
+	  			src: ['/projects/samples/snare-acoustic02.wav']
+			}),
+			color: '#9b59b6'
+		},
+		g: {
+			sound: new Howl({
+	  			src: ['/projects/samples/clap-crushed.wav']
+			}),
+			color: '#34495e'
+		},
+		h: {
+			sound: new Howl({
+	  			src: ['/projects/samples/ride-acoustic02.wav']
+			}),
+			color: '#16a085'
+		},
+		j: {
+			sound: new Howl({
+	  			src: ['/projects/samples/crash-acoustic.wav']
+			}),
+			color: '#27ae60'
+		},
+		k: {
+			sound: new Howl({
+	  			src: ['/projects/samples/tom-acoustic02.wav']
+			}),
+			color: '#2980b9'
+		},
+		l: {
+			sound: new Howl({
+				src: ['/projects/samples/tom-acoustic01.wav']
+			}),
+			color: '#8e44ad'
+		},
+	}
+
+
+	var circles = [];
+
+    function onKeyDown(event){
+
+      if(keyData[event.key]){
+        
+        var maxPoint = new Point(view.size.width, view.size.height);
+        var randomPoint = Point.random();
+        var point = maxPoint * randomPoint;
+        var newCircle = new Path.Circle(point, 500);
+    
+        newCircle.fillColor = randomColor();
+        keyData[event.key].sound.play();
+        circles.push(newCircle);
+      }
+    }
+
+    function onFrame(event){
+    	for(var i = 0; i < circles.length; i++){
+    		circles[i].scale(0.9);
+    		circles[i].fillColor.hue += 1;
+
+    		if(circles[i].area < 1){
+    			circles[i].remove();
+    			circles.splice(i, 1);
+    			i--;
+    		}
+    	}
+    }
+
+    function randomColor(){
+		r = Math.floor(Math.random() * 256)
+		g = Math.floor(Math.random() * 256)
+		b = Math.floor(Math.random() * 256)
+		return "rgb(" + r + ", " + g + ", " + b + ")";
+	}
+
+</script>
+  </head>
+  <body>
+    
+     <!--NAVBAR-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand" href="/nickbansal">Nick Bansal</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <% if (currentUser) { %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/blogs/new">New</a>
+                  </li>
+                <% } %>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/blogs">TravelBlog <span class="sr-only">(current)</span></a>
+                </li>
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/music">Music</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+         
+          
+          
+        </div>
+         <div class="collapse navbar-collapse container">
+            <ul class="nav navbar-nav ml-auto">
+              <% if (!currentUser) { %>
+              <li><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"> </i> Log In</a></li>
+              <!--<li><a class="nav-link" href="/register">Sign Up</a></li>-->
+              <% } else { %>
+              <li><a class="nav-link" href="#">logged in as: <strong><%= currentUser.username %></strong></a></li>
+              <li><a class="nav-link active" href="/logout">Log Out</a></li>
+              <% } %>
+            </ul>
+          </div>
+      </nav>
+      
+      
+      
+      <!--SECOND NAVBAR-->
+       <nav class="navbar navbar-expand-lg bottom">
+          <div class="container">
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav">
+                <a class="nav-link" href="/portfolio/todolist">
+                  <li class="nav-item">
+                    <i class="fas fa-angle-left"></i> Back
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </div>
+         
+          
+          
+        </div>
+         <div class="collapse navbar-collapse container">
+            <ul class="nav navbar-nav ml-auto">
+              <li>
+                <a class="nav-link" href="/portfolio/clock"> Next <i class="fas fa-angle-right"></i></a></li>
+            </ul>
+          </div>
+      </nav>
+
+  	<div class="keys">
+  		<div class="key">
+      		<kbd>A</kbd>
+      		<span class="sound">openhat</span>
+    	</div>
+	    <div class="key">
+	      	<kbd>S</kbd>
+	      	<span class="sound">hihat</span>
+	    </div>
+	    <div class="key">
+	      	<kbd>D</kbd>
+	      	<span class="sound">kick</span>
+	    </div>
+	    <div class="key">
+	      	<kbd>F</kbd>
+	      	<span class="sound">snare</span>
+	    </div>
+	    <div class="key">
+	      	<kbd>G</kbd>
+	      	<span class="sound">clap</span>
+	    </div>
+	    <div class="key">
+	      	<kbd>H</kbd>
+	      	<span class="sound">ride</span>
+	    </div>
+	    <div class="key">
+	      	<kbd>J</kbd>
+	      	<span class="sound">crash</span>
+	    </div>
+	    <div class="key">
+	      	<kbd>K</kbd>
+	      	<span class="sound">hightom</span>
+	    </div>
+	    <div class="key">
+	      	<kbd>L</kbd>
+	      	<span class="sound">lowtom</span>
+	    </div>
+  	</div>
+
+    <canvas id="myCanvas" resize></canvas>
+  </body>
+</html>
