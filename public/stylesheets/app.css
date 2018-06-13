@@ -101,9 +101,7 @@ div.text {
     font-size: 1.0em;
 }
  
-iframe {
-    margin-bottom: 100px;
-}
+
 
 div.caption {
     margin: 20px 5px;
@@ -180,3 +178,15 @@ ul.rslides {
   width: 100%;
   border: 0;
   }
+  
+iframe {
+    box-shadow: 0 25px 20px #607d8b;
+    margin-bottom: 100px;
+}
+
+.rslides1_nav {
+    margin: 45px;
+    text-decoration: none;
+    color: black;
+    
+}
